@@ -73,14 +73,21 @@ function createIcon(classes) {
   return icon;
 }
 
-function removeItem(e) {
+function onClickItem(e) {
   if (e.target.parentElement.classList.contains('remove-item')) {
-    if (confirm('Are you sure?')) {
-      e.target.parentElement.parentElement.remove();
-    }
+    removeItem(e.target.parentElement);
   }
+}
 
-  checkUI();
+function removeItem(item) {
+  console.log(item);
+  // if (e.target.parentElement.classList.contains('remove-item')) {
+  //   if (confirm('Are you sure?')) {
+  //     e.target.parentElement.parentElement.remove();
+  //   }
+  // }
+
+  // checkUI();
 }
 
 function clearItems() {
@@ -121,7 +128,7 @@ function checkUI() {
 // Initialize app
 function init() {
   itemForm.addEventListener('submit', onAddItemSubmit);
-  itemList.addEventListener('click', removeItem);
+  itemList.addEventListener('click', onClickItem);
   clearAll.addEventListener('click', clearItems);
   itemFilter.addEventListener('input', filterItems);
   document.addEventListener('DOMContentLoaded', displayItems);
