@@ -1,6 +1,6 @@
 # File formats to ignore
 **/*.pdf
-**/*.png
+# **/*.png
 **/*.jpg
 **/*.JPG
 **/*.docx
@@ -12,5 +12,3 @@
 **/*.bak
 **/*.qss
 
-# Folders to ignore
-/images
