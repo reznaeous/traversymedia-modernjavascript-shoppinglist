@@ -75,25 +75,36 @@ function createIcon(classes) {
 
 function onClickItem(e) {
   if (e.target.parentElement.classList.contains('remove-item')) {
-    removeItem(e.target.parentElement);
+    removeItem(e.target.parentElement.parentElement);
   }
 }
 
 function removeItem(item) {
-  console.log(item);
-  // if (e.target.parentElement.classList.contains('remove-item')) {
-  //   if (confirm('Are you sure?')) {
-  //     e.target.parentElement.parentElement.remove();
-  //   }
-  // }
+  if (confirm('Are you sure?')) {
+    // Remove item from DOM
+    item.remove();
 
-  // checkUI();
+    // Remove item from storage
+    removeItemFromStorage(item.textContent);
+  }
+
+  checkUI();
+}
+
+function removeItemFromStorage(item) {
+  let itemsFromStorage = getItemsFromStorage();
+
+  itemsFromStorage = itemsFromStorage.filter((i) => i !== item);
+
+  localStorage.setItem('items', JSON.stringify(itemsFromStorage));
 }
 
 function clearItems() {
   while (itemList.firstChild) {
     itemList.removeChild(itemList.firstChild);
   }
+
+  localStorage.removeItem('items');
 
   checkUI();
 }
