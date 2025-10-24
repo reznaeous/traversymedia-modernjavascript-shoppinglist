@@ -1,0 +1,16 @@
+# File formats to ignore
+**/*.pdf
+**/*.png
+**/*.jpg
+**/*.JPG
+**/*.docx
+**/*.doc
+**/*.gif
+**/*.rm
+**/*.mp3
+**/*.wav
+**/*.bak
+**/*.qss
+
+# Folders to ignore
+/images
